@@ -146,6 +146,9 @@ def update_pie_chart(selected_country):
     fig = px.pie(values=values, names=labels, title=f'Medalhas por tipo - {selected_country}')
     return fig
 
-# Executa o app
+# ADICIONE ESTA LINHA:
+server = app.server
+
+# A seção abaixo é apenas para execução local e não afeta o Gunicorn
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run_server(debug=True) # Ou debug=False para produção local
